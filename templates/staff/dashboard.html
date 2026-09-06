@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Welcome {{ staff.name }}</h1>
+
+<h3>Your Assigned Treks</h3>
+
+<table border="1">
+    <tr>
+        <th>Trek Name</th>
+        <th>Location</th>
+        <th>Status</th>
+        <th>Registered Users</th>
+        <th>Action</th>
+    </tr>
+
+    {% for trek in assigned_treks %}
+    <tr>
+        <td>{{ trek.trek_name }}</td>
+        <td>{{ trek.location }}</td>
+        <td>{{ trek.status }}</td>
+        <td>{{ trek.bookings|length }}</td>
+        <td>
+    <a href="/staff/update_status/{{ trek.id }}">
+        <button>Update Status</button>
+    </a>
+</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

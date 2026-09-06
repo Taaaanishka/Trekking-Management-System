@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>All Treks</h2>
+
+<table border="1" cellpadding="10">
+
+    <tr>
+        <th>Trek Name</th>
+        <th>Location</th>
+        <th>Difficulty</th>
+        <th>Duration</th>
+        <th>Available Slots</th>
+        <th>Action</th>
+        <th>Assigned Staff ID</th>
+    </tr>
+
+    {% for trek in treks %}
+
+    <tr>
+
+        <td>{{ trek.trek_name }}</td>
+
+        <td>{{ trek.location }}</td>
+
+        <td>{{ trek.difficulty }}</td>
+
+        <td>{{ trek.duration }}</td>
+
+        <td>{{ trek.available_slots }}</td>
+        <td>{{ trek.assigned_staff }}</td>
+
+<td>
+
+    <a href="/admin/edit_trek/{{ trek.id }}">
+        Edit
+    </a>
+
+    |
+
+    <a href="/admin/delete_trek/{{ trek.id }}">
+        Delete
+    </a>
+
+</td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

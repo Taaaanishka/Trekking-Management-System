@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>My Bookings</h2>
+
+<table border="1" cellpadding="10">
+
+<tr>
+    <th>Trek</th>
+    <th>Location</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+{% for booking in bookings %}
+
+<tr>
+    <td>{{ booking.trek.trek_name }}</td>
+    <td>{{ booking.trek.location }}</td>
+    <td>{{ booking.status }}</td>
+
+<td>
+    {% if booking.status == "Booked" %}
+        <a href="/user/cancel_booking/{{ booking.id }}">
+            Cancel Booking
+        </a>
+    {% else %}
+        Cancelled
+    {% endif %}
+</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

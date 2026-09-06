@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Assign Staff</h2>
+
+<table border="1" cellpadding="10">
+
+<tr>
+    <th>Trek</th>
+    <th>Assign Staff</th>
+</tr>
+
+{% for trek in treks %}
+
+<tr>
+
+    <td>{{ trek.trek_name }}</td>
+
+    <td>
+
+        <form method="POST">
+
+            <input type="hidden"
+                   name="trek_id"
+                   value="{{ trek.id }}">
+
+            <select name="staff_id">
+
+                {% for staff in staffs %}
+
+                <option value="{{ staff.id }}">
+                    {{ staff.name }}
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+            <button type="submit">
+                Assign
+            </button>
+
+        </form>
+
+    </td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>👨‍💼 Admin Dashboard</h1>
+
+<p>Welcome, Admin!</p>
+
+<hr>
+
+<h3>Dashboard Statistics</h3>
+
+<table border="1" cellpadding="10">
+
+<tr>
+    <th>Total Users</th>
+    <td>{{ total_users }}</td>
+</tr>
+
+<tr>
+    <th>Total Staff</th>
+    <td>{{ total_staff }}</td>
+</tr>
+
+<tr>
+    <th>Total Treks</th>
+    <td>{{ total_treks }}</td>
+</tr>
+
+<tr>
+    <th>Total Bookings</th>
+    <td>{{ total_bookings }}</td>
+</tr>
+
+</table>
+
+<br>
+
+<a href="/admin/staff">
+    <button>View Staff</button>
+</a>
+
+<a href="/admin/create_trek">
+    <button>Create Trek</button>
+</a>
+
+<a href="/admin/view_treks">
+    <button>View Treks</button>
+</a>
+
+<a href="/admin/assign_staff">
+    <button>Assign Staff</button>
+</a>
+
+<a href="/admin/view_users">
+    <button>View Users</button>
+</a>
+
+<a href="/admin/view_bookings">
+    <button>View Bookings</button>
+</a>
+
+<a href="/admin/search">
+    <button>Search</button>
+</a>
+
+{% endblock %}

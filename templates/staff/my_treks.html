@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>My Assigned Treks</h2>
+
+<table border="1">
+
+<tr>
+    <th>Trek</th>
+    <th>Location</th>
+    <th>Difficulty</th>
+</tr>
+
+{% for trek in treks %}
+
+<tr>
+    <td>{{ trek.trek_name }}</td>
+    <td>{{ trek.location }}</td>
+    <td>{{ trek.difficulty }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

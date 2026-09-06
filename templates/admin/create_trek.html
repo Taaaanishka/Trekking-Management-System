@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Create Trek</h2>
+
+<form method="POST">
+
+    <label>Trek Name</label><br>
+    <input type="text" name="trek_name"><br><br>
+
+    <label>Location</label><br>
+    <input type="text" name="location"><br><br>
+
+    <label>Difficulty</label><br>
+
+    <select name="difficulty">
+        <option>Easy</option>
+        <option>Moderate</option>
+        <option>Hard</option>
+    </select>
+
+    <br><br>
+
+    <label>Duration (Days)</label><br>
+    <input type="number" name="duration"><br><br>
+
+    <label>Available Slots</label><br>
+    <input type="number" name="slots"><br><br>
+
+    <button type="submit">
+        Create Trek
+    </button>
+
+</form>
+
+{% endblock %}

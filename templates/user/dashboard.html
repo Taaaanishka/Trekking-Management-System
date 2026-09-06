@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Welcome {{ user.name }}</h1>
+
+<br>
+
+<a href="/user/view_treks">
+    <button>View Available Treks</button>
+</a>
+
+<br><br>
+
+<a href="/user/my_bookings">
+    <button>My Bookings</button>
+</a>
+
+{% endblock %}

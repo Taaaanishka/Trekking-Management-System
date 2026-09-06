@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>All Users</h1>
+
+<table border="1" cellpadding="8">
+
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Approved</th>
+    <th>Blacklisted</th>
+    <th>Action</th>
+</tr>
+
+{% for user in users %}
+
+<tr>
+
+<td>{{ user.id }}</td>
+
+<td>{{ user.name }}</td>
+
+<td>{{ user.email }}</td>
+
+<td>{{ user.role }}</td>
+
+<td>{{ user.approved }}</td>
+
+<td>{{ user.blacklisted }}</td>
+
+<td>
+    {% if user.role != "admin" %}
+        {% if not user.blacklisted %}
+            <a href="/admin/blacklist/{{ user.id }}">
+                <button>Blacklist</button>
+            </a>
+        {% else %}
+            Blacklisted
+        {% endif %}
+    {% endif %}
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

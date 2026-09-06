@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<table border="1" cellpadding="8">
+
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Approved</th>
+    <th>Action</th>
+    <th>Blacklisted</th>
+</tr>
+
+{% for staff in staff_members %}
+
+<tr>
+
+<td>{{ staff.id }}</td>
+<td>{{ staff.name }}</td>
+<td>{{ staff.email }}</td>
+<td>{{ staff.approved }}</td>
+<td>{{ staff.blacklisted }}</td>
+
+<td>
+
+{% if not staff.approved %}
+
+<a href="/admin/approve/{{ staff.id }}">
+    <button>Approve</button>
+</a>
+
+{% elif not staff.blacklisted %}
+
+<a href="/admin/blacklist_staff/{{ staff.id }}">
+    <button>Blacklist</button>
+</a>
+
+{% else %}
+
+Blacklisted
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}
